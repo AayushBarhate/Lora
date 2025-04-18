@@ -24,15 +24,15 @@
 | TTL (1 byte)                                                  |
 |   • Time-To-Live (hop limit)                                  |
 +---------------------------------------------------------------+
+| Total Length (2 bytes)                                        |
+|   • Total packet length (header + DATA)                       |
++---------------------------------------------------------------+
 | More Fragments (1 bit)                                        |
 |   • '1' if additional fragments follow;                       |
 |     if '0', omit Sequence Number                              |
 +---------------------------------------------------------------+
 | Sequence Number (2 bytes, conditional)                        |
 |   • For ordering fragments (present if More Fragments = 1)    |
-+---------------------------------------------------------------+
-| Total Length (2 bytes)                                        |
-|   • Total packet length (header + DATA)                       |
 +---------------------------------------------------------------+
 | Checksum (2 bytes)                                            |
 |   • Error-checking (e.g., CRC)                                |
@@ -94,3 +94,18 @@
 
 - **DATA (variable length)**
   - The application payload.
+  
+    
+  
+    
+  
+    
+  
+    
+
+# Issues we are facing currently 
+
+| Issue            | Solution         | Solved ? |
+| ---------------- | ---------------- | -------- |
+| Packet Collision | CSMA/CA with CAD | No       |
+
